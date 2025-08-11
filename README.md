@@ -23,19 +23,3 @@ docker build -t ejemplo-ci-cd-node .
 docker run --rm ejemplo-ci-cd-node
 ```
 
-## Subir a GitHub (pasos mínimos)
-1. Crear repo en GitHub: `ejemplo-ci-cd-node`.
-2. En tu carpeta local:
-```bash
-git init
-git add .
-git commit -m "Initial commit - ejemplo CI/CD"
-git branch -M main
-git remote add origin git@github.com:TU_USUARIO/ejemplo-ci-cd-node.git
-git push -u origin main
-```
-3. Ir a la pestaña **Actions** para revisar la ejecución de los workflows.
-
-## Notas sobre CD / GHCR
-- El workflow de CD usa `GITHUB_TOKEN` por defecto (pero puede requerir permisos de `packages: write`).
-- Si tenés problemas de permisos al pushear la imagen, generá un PAT con `write:packages` y ponelo en Secrets como `GHCR_TOKEN`.
